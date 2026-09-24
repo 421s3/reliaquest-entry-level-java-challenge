@@ -39,10 +39,10 @@ public class EmployeeService {
         return new ArrayList<>(employeeMap.values());
     }
 
-    public Employee getEmployeeByID(UUID id) {
+    public Employee getEmployeeByUuid(UUID id) {
         Employee employee = employeeMap.get(id);
         if (employee == null) {
-            throw new EmployeeNotFoundException("Employee with ID " + id + " not found");
+            throw new EmployeeNotFoundException("Employee with UUID " + id + " not found");
         }
         return employee;
     }
