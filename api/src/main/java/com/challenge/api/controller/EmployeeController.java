@@ -57,4 +57,13 @@ public class EmployeeController {
     public Employee createEmployee(@Valid @RequestBody CreateEmployeeRequest request) {
         return employeeService.createEmployee(request);
     }
+    /**
+     * @implNote Need not be concerned with an actual persistence layer.
+     * @param request CreateEmployeeRequest which contains the information to create a new Employee.
+     * @return Requested Employee if exists
+     */
+    @PostMapping("/{uuid}/terminate")
+    public Employee terminateEmployee(@PathVariable UUID uuid) {
+        return employeeService.terminateEmployee(uuid);
+    }
 }

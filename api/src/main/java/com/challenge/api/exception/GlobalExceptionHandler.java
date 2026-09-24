@@ -72,6 +72,14 @@ public class GlobalExceptionHandler {
         return buildResponse(HttpStatus.BAD_REQUEST, "Malformed request body", request);
     }
 
+    // 409 Conflict: operation not allowed due to invalid employee state (termination before start date)
+    @ExceptionHandler(InvalidEmployeeStateException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidEmployeeState(
+            InvalidEmployeeStateException ex, WebRequest request) {
+        log.warn("Invalid employee state: {}", ex.getMessage());
+        return buildResponse(HttpStatus.CONFLICT, ex.getMessage(), request);
+    }
+
     // Catch-all for unhandled errors/exceptions
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleUncaughtException(Exception ex, WebRequest request) {
