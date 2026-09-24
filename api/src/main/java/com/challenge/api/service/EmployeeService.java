@@ -100,6 +100,7 @@ public class EmployeeService {
                 request.getContractHireDate(),
                 request.getContractTerminationDate());
         employeeMap.put(employee.getUuid(), employee);
+        log.info("Created employee {}", employee.getUuid());
         return employee;
     }
 
