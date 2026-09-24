@@ -16,6 +16,28 @@ public class EmployeeProfile implements Employee {
     private Instant contractHireDate;
     private Instant contractTerminationDate;
 
+    public EmployeeProfile(
+            UUID uuid,
+            String firstName,
+            String lastName,
+            Integer salary,
+            Integer age,
+            String jobTitle,
+            String email,
+            Instant contractHireDate,
+            Instant contractTerminationDate) {
+        this.uuid = uuid;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+        this.age = age;
+        this.jobTitle = jobTitle;
+        this.email = email;
+        this.contractHireDate = contractHireDate;
+        this.contractTerminationDate = contractTerminationDate;
+        updateFullName();
+    }
+
     @Override
     public UUID getUuid() {
         return uuid;
